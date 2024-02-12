@@ -1,3 +1,8 @@
+$(".navbar-toggler").on("click", function () {
+  // Toggle kelas show pada elemen .navbar-collapse
+  $(".navbar-collapse").toggleClass("show");
+});
+
 function randomMeal() {
   $(".result-container").html(
     `<div class="d-flex justify-content-center mt-5">
