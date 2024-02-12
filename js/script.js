@@ -1,10 +1,17 @@
 function randomMeal() {
+  $(".result-container").html(
+    `<div class="d-flex justify-content-center mt-5">
+        <div class="spinner-border" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </div>`
+  );
+
   $.ajax({
     url: "https://www.themealdb.com/api/json/v1/1/random.php",
     dataType: "json",
     type: "get",
     success: function (response) {
-      console.log(response);
       showResult(response);
     },
   });
@@ -15,6 +22,13 @@ $("#swipe-button").on("click", function () {
 });
 
 function searchMeal() {
+  $(".result-container").html(
+    `<div class="d-flex justify-content-center mt-5">
+        <div class="spinner-border" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </div>`
+  );
   $.ajax({
     url: "https://www.themealdb.com/api/json/v1/1/search.php",
     data: {
@@ -32,7 +46,7 @@ function showResult(response) {
   $("#instruction-order").html("");
   $("#ingredients-list").html("");
 
-  if (response !== null) {
+  if (response.meals !== null) {
     let meal = response.meals[0];
     if (meal.strTags === null) {
       meal.strTags = "-";
