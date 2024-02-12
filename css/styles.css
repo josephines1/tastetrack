@@ -1,0 +1,19 @@
+.index-body {
+  overflow: hidden;
+}
+
+.hero-img {
+  max-width: 600px;
+  max-height: 600px;
+  width: 90%;
+  margin-inline: auto;
+}
+
+.ingredient-column {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.ingredient-column li {
+  width: calc(100% / 2);
+}
